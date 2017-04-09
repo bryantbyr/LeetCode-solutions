@@ -4,6 +4,12 @@
 #include <string>
 using namespace std;
 
+/**
+ * 20170409
+ * Time:O(NlogN)
+ * Space:O(1))
+ * 排序，然后比较
+ */
 class Solution {
 public:
     bool isAnagram(string s, string t) {
