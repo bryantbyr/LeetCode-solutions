@@ -1,3 +1,7 @@
+# !/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# created on 20170809
+# list.sort/sorted
 class Solution(object):
     def findRelativeRanks(self, nums):
         """
