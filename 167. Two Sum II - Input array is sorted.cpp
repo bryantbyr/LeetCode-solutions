@@ -5,7 +5,7 @@ using namespace std;
 
 //Created by bryantbyr on 20170828
 //Time:O(n^2)
-//Space:O(n)
+//Space:O(1)
 //Two Pointers
 // class Solution {
 // public:
@@ -28,7 +28,7 @@ using namespace std;
 
 //Learn from discuss on 20170828
 //Time:O(n)
-//Space:O(n)
+//Space:O(1)
 //Binary Search / Two Pointers
 class Solution {
 public:
