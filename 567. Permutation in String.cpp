@@ -1,5 +1,6 @@
 //567. Permutation in String.cpp
 #include <iostream>
+#include <vector>
 #include <unordered_map>
 using namespace std;
 
@@ -10,7 +11,7 @@ using namespace std;
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
-        if(s1.size()>s2.size())
+        if (s1.size() > s2.size())
             return false;
         unordered_map<char, int> m1;
         for (unsigned i = 0; i < s1.size(); ++i)
@@ -27,9 +28,40 @@ public:
     }
 };
 
+//Learn from discuss on 20170904
+//Time:O(n)
+//Space:O(n)
+//Two Pointers (sliding window)
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        if (s1.size() > s2.size())
+            return false;
+        vector<int> count(26, 0);
+        for (int i = 0; i < (int)s1.size(); ++i)
+            count[s1[i] - 'a']++;
+        int left = 0;
+        for (int right = 0; right < (int)s2.size(); ++right) {
+            if (--count[s2[right] - 'a'] < 0) {//窗口左移,注意恢复count
+                // while (++count[s2[left++] - 'a'] != 0);
+                count[s2[left] - 'a']++;
+                while (count[s2[left] - 'a'] != 0) {
+                    left++;
+                    count[s2[left] - 'a']++;
+                }
+                left++;
+            } else {
+                if (right - left + 1 == (int)s1.size())
+                    return true;
+            }
+        }
+        return false;
+    }
+};
+
 int main()
 {
     Solution S;
-    string s1 = "ros", s2 = "horse";
+    string s1 = "rss", s2 = "hsrossre";
     cout << S.checkInclusion(s1, s2) << endl;
 }
