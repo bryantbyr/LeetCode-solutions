@@ -56,12 +56,30 @@ public:
     }
 };
 
-
+//Learn from discuss on 20170928
+//Time:O(n)
+//Space:O(1)
+//array
+class Solution {
+public:
+    int findUnsortedSubarray(vector<int>& nums) {
+        int start = 0, end = 1, Max = nums[0], Min = nums[nums.size() - 1];
+        for (unsigned i = 1; i < nums.size(); ++i) {
+            Max = max(Max, nums[i]);
+            Min = min(Min, nums[nums.size() - i - 1]);
+            if (Max > nums[i])
+                start = i;
+            if (Min < nums[nums.size() - i - 1])
+                end = nums.size() - i - 1;
+        }
+        return start - end + 1;
+    }
+};
 
 
 int main()
 {
     Solution S;
-    vector<int> v = {2, 6, 4, 8, 10, 9, 15};
+    vector<int> v = {1, 2, 3, 4};
     cout << S.findUnsortedSubarray(v) << endl;
 }
