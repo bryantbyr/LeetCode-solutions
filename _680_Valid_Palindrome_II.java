@@ -65,6 +65,7 @@
 //String (Time Limit Exceeded)
 class Solution {
     public boolean isPalindrome(String s) {
+//      return s.equals(new StringBuilder(s).reverse().toString());
         int l = 0, r = s.length() - 1;
         while (l < r) {
             if (s.charAt(l++) != s.charAt(r--))
