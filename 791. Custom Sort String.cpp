@@ -16,6 +16,30 @@ public:
     }
 };
 
+//Learn from discuss on 20180307
+//Time:O(n)
+//Space:O(n)
+//string
+class Solution {
+public:
+    string customSortString(string S, string T) {
+        int hash[26] = {0};
+        for (auto &c : T)
+            hash[c - 'a']++;
+        string res = "";
+        for (auto &c : S) {
+            for (int i = hash[c - 'a']; i > 0; i--)
+                res += c;
+            hash[c - 'a'] = 0;
+        }
+        for (char c = 'a'; c <= 'z'; c++) {
+            for (int i = hash[c - 'a']; i > 0; i--)
+                res += c;
+        }
+        return res;
+    }
+};
+
 int main()
 {
     Solution s;
