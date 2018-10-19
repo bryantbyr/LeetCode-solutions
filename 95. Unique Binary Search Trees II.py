@@ -10,7 +10,7 @@ class TreeNode:
 #Learn from solution on 20181018
 #Time:O(n^2)
 #Space:O(n)
-#Tree + DP
+#Tree + Recursion
 class Solution:
     def generateTrees(self, n):
         """
