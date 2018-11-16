@@ -29,7 +29,27 @@ class Solution:
             graph[u].add(v)
             graph[v].add(u)
 
+#Learn from solution on 20181116
+#Time:O(N)
+#Space:O(N)
+#Tree + Union Find
+class Solution:
+    def findRedundantConnection(self, edges):
+        """
+        :type edges: List[List[int]]
+        :rtype: List[int]
+        """
+        p = [i for i in range(max(reduce(operator.add, edges)) + 1)]
 
+        def find(a):
+            while (p[a] != a):
+                a = p[a]
+            return a
+
+        for s, t in edges:
+            ps, pt = find(s), find(t)
+            if ps == pt: return [s, t]
+            p[ps] = pt
 
 
 S = Solution()
