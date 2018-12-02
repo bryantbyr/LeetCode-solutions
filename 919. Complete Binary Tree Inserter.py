@@ -32,12 +32,12 @@ class CBTInserter:
         :rtype: int
         """
         parent = self.deque[0]
-        if not parent.left:
-            parent.left = TreeNode(v)
-        else:
-            parent.right = TreeNode(v)
-            self.deque.popleft()
         self.deque.append(TreeNode(v))
+        if not parent.left:
+            parent.left = self.deque[-1]
+        else:
+            parent.right = self.deque[-1]
+            self.deque.popleft()
         return parent.val
 
     def get_root(self):
