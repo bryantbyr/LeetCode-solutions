@@ -1,2 +1,2 @@
-# bryantbyr-LeetCode-_Experience
-LeetCode 刷题记录
+# LeetCode-Experience
+### LeetCode 解题记录
